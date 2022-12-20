@@ -58,6 +58,7 @@ public:
     int getQuadradoAt(int linha, int coluna);
     pontinho getPontinhoAt(int linha, int coluna);
     Matriz<char> *generateView();
+    void forcaQuadrado(int linha, int coluna, int player);
     
 };
 

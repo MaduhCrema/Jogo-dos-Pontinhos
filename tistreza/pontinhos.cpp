@@ -7,6 +7,11 @@
 #include "pontinhos.hpp"
 #include "matriz.hpp"
 
+void Pontinhos::forcaQuadrado(int linha, int coluna, int player){
+    int *forca = &squares->matriz[linha][coluna];
+    *forca = -player;
+}
+
 int Pontinhos::getLinhas(){
     return this->linhas;    
 } 

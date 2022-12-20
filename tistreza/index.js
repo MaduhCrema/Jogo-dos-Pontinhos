@@ -23,9 +23,9 @@ app.post("/", (req, res) => {
   for (let par of Object.keys(req.body)) pars.push(req.body[par]);
   console.log(pars);
 
-  const ls = spawn("./aa");
-  console.log(ls);
-  /*ls.stdout.on("data", (data) => {
+  const ls = spawn("./servercommunic.x", pars);
+  console.log(ls.data);
+  ls.stdout.on("data", (data) => {
     const point = `${data}`.split(" ");
     return res.json({
       p1x: point[0],
@@ -33,7 +33,7 @@ app.post("/", (req, res) => {
       p2x: point[2],
       p2y: point[3],
     });
-  });*/
+  });
 });
 
 app.listen(PORT, () => {

@@ -13,21 +13,18 @@ namespace PontinhosHelper{
 
     static Matriz<char>* generateView(Pontinhos *p_grid);
     static std::vector<resultado> gerarFilhos(Pontinhos *pai, int player);
-    static res_minimax minimax(resultado position, bool maxPlayer);
+    //static res_minimax minimax(resultado position, bool maxPlayer);
     static res_minimax minimaxAB(resultado position, bool maxPlayer, int alpha, int beta);
     static Pontinhos* getPontinhosCopia(Pontinhos *base);
     static int avalJogada(int resultado);
     static res_minimax maxRes(res_minimax r1 , res_minimax r2);
     static res_minimax minRes(res_minimax r1 , res_minimax r2);
     static void clearResultados(std::vector<resultado>& result);
-    static bool melhorJogada(resultado resultado_1, resultado resultado_2, Pontinhos *pai);
+    //static bool melhorJogada(resultado resultado_1, resultado resultado_2, Pontinhos *pai);
     static int avalJogada(Pontinhos *resultado);
 
 };
 
-static bool melhorJogada(resultado resultado_1, resultado resultado_2, Pontinhos *pai){
-
-}
 
 static void clearResultados(std::vector<resultado>& result){
     for (std::vector<resultado>::iterator it = result.begin(); it != result.end(); it++){
@@ -454,35 +451,6 @@ res_minimax PontinhosHelper::minimaxAB(resultado position, bool maxPlayer, int a
     }
 }
 
-
-res_minimax PontinhosHelper::minimax(resultado position, bool maxPlayer){
-
-    int player;
-    if (maxPlayer == true)
-        player = PLAYER_2;
-    else
-        player = PLAYER_1;
-
-    std::vector<resultado> filhos = gerarFilhos(position.filho, player);
-
-    for(std::vector<resultado>::iterator it = filhos.begin(); it != filhos.end(); it++){
-        Matriz<char> *view  = PontinhosHelper::generateView(it->filho);
-        
-        std::cout << "jogada: " << it->p1_gerador.linha << " " << it->p1_gerador.coluna << " " << 
-                                   it->p2_gerador.linha << " " << it->p2_gerador.coluna << "\n" ;
-        view->printMatriz();
-        std::cout << "Fechou quadrado :" << it->fechou_quadrado << "\n";
-        std::cout << std::endl;
-    }
-
-    //caso base
-    if (filhos.size() == 0){
-        
-        
-    }
-
-
-}
 
 static int PontinhosHelper::avalJogada(int resultado){
      if (resultado == -1)
